@@ -9,4 +9,7 @@ export default {
    orders AS orders INNER JOIN
    Trybesmith.products AS products ON products.order_id = orders.id GROUP BY orders.id;`,
   getUserLogin: 'SELECT * FROM Trybesmith.users WHERE username = ?;',
+  getAllUsers: 'SELECT * FROM Trybesmith.users WHERE username = ?;',
+  newPostOrder: 'INSERT INTO Trybesmith.orders (user_id) VALUES (?)',
+  updateProducts: 'UPDATE Trybesmith.products SET order_id = ? WHERE id = ?',
 };

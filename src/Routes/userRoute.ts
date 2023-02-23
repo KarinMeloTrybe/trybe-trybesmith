@@ -4,7 +4,7 @@ import {
   validationLevel,
   validationName,
   validationPassword,
-  validationVocation
+  validationVocation,
 } from '../middlewares/userMiddleware';
 
 const usersRoute = express.Router();

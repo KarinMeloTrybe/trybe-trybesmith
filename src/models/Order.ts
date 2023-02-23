@@ -1,4 +1,5 @@
-import { RowDataPacket } from 'mysql2/promise';
+import { ResultSetHeader, RowDataPacket } from 'mysql2/promise';
+import IOrder from '../interfaces/orderInterfaces';
 import connection from './connection';
 import queries from './queries';
 
@@ -7,4 +8,18 @@ const getAllOrders = async () => {
   return allOrders;
 };
 
-export default { getAllOrders };
+const newOrder = async ({ userId, productsIds }: IOrder) => {
+  const [{ affectedRows, insertId }] = await connection
+    .execute<ResultSetHeader>(queries.newPostOrder, [userId]);
+  const promise = productsIds.map(async (id) => {
+    await connection
+      .execute<ResultSetHeader>(queries.updateProducts, [insertId, id]);
+  });
+  await Promise.all(promise);
+  return affectedRows;
+};
+
+export default { 
+  getAllOrders,
+  newOrder,
+};
