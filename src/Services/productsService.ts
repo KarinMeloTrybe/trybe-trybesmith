@@ -9,6 +9,7 @@ const product = async (body: IProduct) => {
 
 const getAllProduct = async () => {
   const products = await Product.getAllProduct();
+  if (!products) return { type: 'error', message: 'It was not possible to return your products' };
   return { type: null, message: products };
 };
  
