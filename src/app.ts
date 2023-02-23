@@ -1,5 +1,6 @@
 import express from 'express';
 
+import ordersRoute from './Routes/ordersRoute';
 import productsRoute from './Routes/productsRoute';
 import usersRoute from './Routes/userRoute';
 
@@ -10,5 +11,7 @@ app.use(express.json());
 app.use('/products', productsRoute);
 
 app.use('/users', usersRoute);
+
+app.use('/orders', ordersRoute);
 
 export default app;

@@ -12,8 +12,8 @@ const getAllProduct = async () => {
   if (!products) return { type: 'error', message: 'It was not possible to return your products' };
   return { type: null, message: products };
 };
- 
-export default { 
+
+export default {
   product,
   getAllProduct,
 };

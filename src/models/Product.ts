@@ -10,7 +10,6 @@ const product = async ({ name, amount }: IProduct) => {
 
 const getAllProduct = async () => {
   const [allProducts] = await connection.execute<RowDataPacket[]>(queries.getAllProducts);
-  console.log(allProducts);
   return allProducts;
 };
 

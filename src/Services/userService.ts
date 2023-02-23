@@ -18,13 +18,3 @@ export default {
   newUser,
 
 };
-
-/* const create = async (body) => {
-  
-      const { dataValues } = user;
-      const { password: _, ...dataUser } = dataValues; // o underline significa que ignoramos password
-      
-      return { status: 201, message: { token } };
-  }
-  return { status: 409, message: { message: 'User already registered' } };
-}; */
